@@ -1,24 +1,13 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ProdutoDTO } from '../../models/produto.dto';
+import { NgModule } from '@angular/core';
+import { ProdutoDetailPage } from './produto-detail';
+import { IonicPageModule } from 'ionic-angular/module';
 
-@IonicPage()
-@Component({
-  selector: 'page-produto-detail',
-  templateUrl: 'produto-detail.html',
+@NgModule({
+  declarations: [
+    ProdutoDetailPage,
+  ],
+  imports: [
+    IonicPageModule.forChild(ProdutoDetailPage),
+  ],
 })
-export class ProdutoDetailPage {
-
-  item: ProdutoDTO;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    this.item = {
-      id: "1",
-      nome: "Mouse",
-      preco: 80.59
-    }
-  }
-}
+export class ProdutoDetailPageModule {}
