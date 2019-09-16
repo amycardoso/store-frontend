@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EnderecoDTO } from '../../models/endereco.dto';
 import { StorageService } from '../../services/storage.service';
-import { ClienteService } from '../../services/cliente.service';
+import { ClienteService } from '../../services/domain/cliente.service';
 import { PedidoDTO } from '../../models/pedido.dto';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../services/domain/cart.service';
 
 @IonicPage()
 @Component({
@@ -35,10 +35,10 @@ export class PickAddressPage {
           let cart = this.cartService.getCart();
 
           this.pedido = {
-            cliente : {id: response['id']},
-            enderecoDeEntrega : null,
+            cliente: {id: response['id']},
+            enderecoDeEntrega: null,
             pagamento: null,
-            itens : cart.items.map(x => {return {quantidade: x.quantidade, produto: {id: x.produto.id} }})
+            itens : cart.items.map(x => {return {quantidade: x.quantidade, produto: {id: x.produto.id}}})
           }
         },
         error => {
@@ -56,5 +56,4 @@ export class PickAddressPage {
     this.pedido.enderecoDeEntrega = {id: item.id};
     this.navCtrl.push('PaymentPage', {pedido: this.pedido});
   }
-
 }

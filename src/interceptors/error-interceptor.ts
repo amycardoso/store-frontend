@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx'; // IMPORTANTE: IMPORT ATUALIZADO
 import { StorageService } from '../services/storage.service';
-import { AlertController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { FieldMessage } from '../models/fieldmessage';
 
 @Injectable()
@@ -101,7 +101,6 @@ export class ErrorInterceptor implements HttpInterceptor {
         return s;
     }
 }
-
 
 export const ErrorInterceptorProvider = {
     provide: HTTP_INTERCEPTORS,

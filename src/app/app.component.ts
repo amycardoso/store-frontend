@@ -40,7 +40,7 @@ export class MyApp {
       this.splashScreen.hide();
     });
   }
-  
+
   openPage(page : {title:string, component:string}) {
 
     switch (page.title) {
@@ -53,5 +53,4 @@ export class MyApp {
       this.nav.setRoot(page.component);
     }
   }
-
 }
